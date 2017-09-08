@@ -84,21 +84,17 @@ col = len(work_set[0])
 avg = np.empty((col), dtype =np.double)  #avg value
 stdev = np.empty((col), dtype =np.double)  #standard deviation
 
-feature_scale(work_set, avg, stdev)
+#feature_scale(work_set, avg, stdev)
 
 scale_data(work_set, avg, stdev)
 theta = np.full((col), 0, dtype =np.double)
 
 alpha = 1.5
-prev_cost = 1000000
 pres_cost = 10000
 itr = 0
 
 while(itr<100):
-	prev_cost = cost_function(work_set, theta)
 	grad_descent(work_set, theta, alpha)
-	pres_cost = cost_function(work_set, theta)
-
 	itr+=1
 
 print("Final hypothesis is :: \n",theta[0],end=' ')
